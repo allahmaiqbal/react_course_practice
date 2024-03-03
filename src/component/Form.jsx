@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import MyInput from "./MyInput";
 
 export default function Form() {
   const focusRef = useRef(null);
@@ -7,7 +8,8 @@ export default function Form() {
   };
   return (
     <>
-      <input ref={focusRef} type="text" />
+      <MyInput type={"text"} ref={focusRef} />
+
       <button onClick={handlerFocus}>Click</button>
     </>
   );
