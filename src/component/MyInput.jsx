@@ -1,6 +1,12 @@
-import { forwardRef } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 const myinput = (props, ref) => {
-  return <input {...props} ref={ref} />;
+  const reaInputRef = useRef(null);
+  useImperativeHandle(ref, () => ({
+    focus() {
+      reaInputRef.current.focus();
+    },
+  }));
+  return <input {...props} ref={reaInputRef} />;
 };
 
 const forwardInput = forwardRef(myinput);
